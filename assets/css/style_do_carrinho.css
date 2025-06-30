@@ -1,0 +1,345 @@
+/* ====== Global e Body ====== */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: Arial, sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    min-height: 100vh;
+    background: none;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.background-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('/PIM_VI_Ordep_Store/assets/img/Background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -1;
+    box-sizing: border-box;
+}
+
+.top-bar {
+    width: 100%;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(94, 59, 136, 0.6);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 12px 12px;
+}
+
+.top-bar h1 span {
+    color: #ff914d;
+}
+
+.search-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    position: relative;
+    margin-left: 115px;
+}
+
+.search-bar {
+    padding: 10px 40px;
+    border: none;
+    border-radius: 20px;
+    width: 400px;
+    font-size: 16px;
+    background-color: #29264c;
+    color: white;
+    display: block;
+    margin: 0 auto;
+}
+
+.suggestions-box {
+    position: absolute;
+    top: 48px;
+    background-color: #29264c;
+    border: 1px solid #ccc;
+    z-index: 100;
+    width: 300px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.suggestions-box div {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestions-box div:hover {
+    background-color: #2c2c2c;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #29264c;
+    color: white;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 160px;
+    background-color: #2c2c2c;
+    border-radius: 6px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1100;
+}
+
+.dropdown-content a {
+    display: block;
+    text-align: center;
+    padding: 12px 16px;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #3e3d7a;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e3d7a;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-right: 60px;
+}
+
+.user-name {
+    font-weight: bold;
+    color: #e3e3e3;
+    font-size: 16px;
+}
+
+.cart-button, .logout-button {
+    vertical-align: middle;
+    margin-right: 40px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+}
+
+.cart-button:hover, .logout-button:hover {
+    color: #ff914d;
+    transition: color 0.3s ease;
+}
+
+
+/* ====== Layout Principal ====== */
+.main-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding: auto;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* ====== Tabela do Carrinho ====== */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: rgba(69, 40, 99, 0.85);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(94, 59, 136, 0.3);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+table:hover {
+    box-shadow: 0 12px 36px rgba(94, 59, 136, 0.5);
+}
+
+th, td {
+    padding: 16px 20px;
+    text-align: center;
+    color: #f1e6ff;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+th {
+    background: rgba(94, 59, 136, 0.6);
+    backdrop-filter: blur(10px);
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ffd19a;
+    box-shadow: inset 0 -2px 4px rgba(255, 255, 255, 0.15);
+}
+
+tr:nth-child(even) {
+    background: rgba(94, 59, 136, 0.4);
+    transition: background-color 0.3s ease;
+}
+
+tr:nth-child(odd) {
+    background: rgba(94, 59, 136, 0.3);
+}
+
+tr:hover {
+    background: rgba(94, 59, 136, 0.6);
+}
+
+tr:last-child td {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #ffb347;
+    letter-spacing: 0.05em;
+}
+
+/* Imagem da plataforma no carrinho */
+td img {
+    max-width: 40px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+td img:hover {
+    transform: scale(1.1);
+}
+
+/* Botões no carrinho */
+button {
+    background-color: #ffb347;
+    color: #121212;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* Inputs quantidade no carrinho */
+input[type="number"] {
+    width: 60px;
+    padding: 8px 10px;
+    border-radius: 12px;
+    border: none;
+    background-color: #3c3460;
+    color: #f1e6ff;
+    text-align: center;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    background-color: #5c4ba7;
+    outline: none;
+    box-shadow: 0 0 6px #ffb347;
+}
+
+/* Link continuar comprando */
+a.continue-shopping {
+    display: inline-block;
+    margin-top: 30px;
+    text-decoration: none;
+    background-color: #ff914d;
+    color: #121212;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+a.continue-shopping:hover {
+    background-color: #e67e22;
+}
+
+/* ====== Responsividade Tabela Carrinho ====== */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin-bottom: 20px;
+        background-color: rgba(94, 59, 136, 0.6);
+        border-radius: 12px;
+        padding: 15px;
+    }
+
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+        color: white;
+        font-weight: 600;
+    }
+
+    td::before {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        color: #ff914d;
+        font-weight: 700;
+    }
+
+    td:nth-of-type(1)::before { content: "Ícone"; }
+    td:nth-of-type(2)::before { content: "Nome"; }
+    td:nth-of-type(3)::before { content: "Plataforma"; }
+    td:nth-of-type(4)::before { content: "Preço Unit."; }
+    td:nth-of-type(5)::before { content: "Quantidade"; }
+    td:nth-of-type(6)::before { content: "Subtotal"; }
+    td:nth-of-type(7)::before { content: "Ações"; }
+}
